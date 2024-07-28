@@ -27,6 +27,7 @@ export const InputWrapper = styled.div`
     height: 80%;
     flex-direction: column;
     justify-content:space-between;
+    
 `
 
 export const EmailInput = styled.input`
