@@ -36,6 +36,8 @@ const SignUp = () => {
                         <S.LoginSpan>로그인</S.LoginSpan>
                         </S.phoneInputWrapper>
                         
+
+                        
                     </S.InputSpanWrapper>
                 </S.InputWrapper>
             </S.SignUpWrapper>

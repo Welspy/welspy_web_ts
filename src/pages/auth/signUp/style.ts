@@ -91,6 +91,8 @@ export const LoginSpan = styled.span`
     margin-bottom: 2%;
     color: #EC2761;
 `
+
+
 export const InputSpanWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -107,5 +109,5 @@ export const SignUpButton = styled.button`
     font-size: 1.2rem;
     color: white;
     border-radius: 0.5rem;
-   
+    border: none;
 `
