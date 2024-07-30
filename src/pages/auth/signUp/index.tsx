@@ -1,5 +1,5 @@
 import * as S from "./style"
-import useSignUp from "src/hook/useSignUp"
+import useSignUp from "src/hook/auth/signUp"
 
 const SignUp = () => {
     const {signUp,signUpButton,signUpHandle} = useSignUp()
