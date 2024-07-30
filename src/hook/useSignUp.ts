@@ -1,5 +1,4 @@
 import axios from "axios"
-import { sign } from "crypto"
 import { useCallback, useState } from "react"
 import CONFIG from "src/config/config.json"
 
@@ -16,9 +15,11 @@ const useSignUp = () => {
     const [signUp, setSignUp] = useState<SignUp>({email: "", name: "", phoneNumber: "", password: ""})
 
 
-    const SignUpHandle = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
-        
-    },[])
+    const signUpHandle = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
+        const {value, name} = e.target;
+
+        setSignUp((prev) => ({...prev, [name]: value}))
+    },[setSignUp])
 
     const signUpButton = async() => {
         await axios.post(`${CONFIG.serverUrl}/auth/sign-up`, {
@@ -26,8 +27,13 @@ const useSignUp = () => {
             name: signUp.name,
             phoneNumber: signUp.phoneNumber,
             password: signUp.password,
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            }
         }).then(res => {
-            if(res.status === 200) {
+            if(res.status === 201) {
                 alert("회원가입 성공")
             }
         }).catch(error => {
@@ -37,7 +43,9 @@ const useSignUp = () => {
 
 
     return {
-
+        signUpButton,
+        signUpHandle,
+        signUp
     }
 }
 

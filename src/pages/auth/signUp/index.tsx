@@ -1,6 +1,9 @@
 import * as S from "./style"
+import useSignUp from "src/hook/useSignUp"
 
 const SignUp = () => {
+    const {signUp,signUpButton,signUpHandle} = useSignUp()
+
     return (
         <S.Wrapper>
             <S.SignUpWrapper>
@@ -8,18 +11,18 @@ const SignUp = () => {
                 <S.InputWrapper>
                     <S.InputSpanWrapper>
                         <S.BoxSpan>이메일</S.BoxSpan>
-                        <S.EmailInput />
+                        <S.EmailInput onChange={signUpHandle} value={signUp.email} name="email"/>
                     </S.InputSpanWrapper>
                     <S.InputSpanWrapper>
                         <S.BoxSpan>전화번호</S.BoxSpan>
                         <S.phoneInputWrapper>
-                            <S.PhoneNumInput />
+                            <S.PhoneNumInput onChange={signUpHandle} value={signUp.phoneNumber} name="phoneNumber"/>
                             <S.PhoneCheckInput type="text"/>    
                         </S.phoneInputWrapper>   
                     </S.InputSpanWrapper>
                     <S.InputSpanWrapper>
                         <S.BoxSpan>비밀번호</S.BoxSpan>
-                        <S.PassWordInput />
+                        <S.PassWordInput onChange={signUpHandle} value={signUp.password} name="password" />
                     </S.InputSpanWrapper>
                     <S.InputSpanWrapper>
                       <S.BoxSpan>비밀번호 확인</S.BoxSpan>
@@ -27,17 +30,14 @@ const SignUp = () => {
                     </S.InputSpanWrapper>
                     <S.InputSpanWrapper>
                         <S.BoxSpan>이름</S.BoxSpan>
-                        <S.NameInput />
+                        <S.NameInput onChange={signUpHandle} value={signUp.name} name="name"/>
                     </S.InputSpanWrapper>
                     <S.InputSpanWrapper>
-                        <S.SignUpButton>회원가입</S.SignUpButton>
+                        <S.SignUpButton onClick={signUpButton}>회원가입</S.SignUpButton>
                         <S.phoneInputWrapper>
                         <S.BoxSpan>계정이 있으신가요?</S.BoxSpan>
                         <S.LoginSpan>로그인</S.LoginSpan>
                         </S.phoneInputWrapper>
-                        
-
-                        
                     </S.InputSpanWrapper>
                 </S.InputWrapper>
             </S.SignUpWrapper>
